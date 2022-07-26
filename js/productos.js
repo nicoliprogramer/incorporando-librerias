@@ -36,6 +36,16 @@ verCarrito.addEventListener("click", () => {
 
 
 const addProduct = function (a) {
+
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Haz agregado a tu compra',
+    text: 'Ver carrito',
+    showConfirmButton: false,
+    timer: 1500
+  })
+
   verCarrito.disabled = false;
 
   let carrito = JSON.parse(localStorage.getItem('carrito'));
@@ -77,9 +87,6 @@ for (let i = 0; i < elements.length; i++) {
 
 
 
-
-
-
 let usuario;
 let usuarioStorage = localStorage.getItem("usuario");
 
@@ -90,5 +97,3 @@ if (usuarioStorage) {
   usuario = prompt("Ingresa tu nombre");
   localStorage.setItem("usuario", usuario);
 }
-
-
