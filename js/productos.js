@@ -92,8 +92,29 @@ let usuarioStorage = localStorage.getItem("usuario");
 
 if (usuarioStorage) {
   usuario = usuarioStorage;
-  alert("Bienvenido " + usuario);
+  Swal.fire({
+    title: 'Bienvenido ' + usuario,
+    width: 350,
+    padding: '3em',
+    color: '#716add',
+    backdrop: `
+    rgba(0,0,123,0.4)
+    left top
+    no-repeat
+  `
+  })
 } else {
-  usuario = prompt("Ingresa tu nombre");
+  usuario = Swal.fire({
+    title: 'Ingrese su nombre',
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: 'Confirmar',
+    showLoaderOnConfirm: true,
+
+  });
+
   localStorage.setItem("usuario", usuario);
 }
